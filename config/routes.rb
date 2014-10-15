@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'coordinators/index'
 
   devise_for :coordinators
-  get 'alumni/index'
 
   resources :alumni
 
