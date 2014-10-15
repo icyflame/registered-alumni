@@ -4,16 +4,22 @@ class AlumniController < ApplicationController
 	end
 
 	def create
-		# render plain: params[:alumni].inspect
 
-		@alumni = Alumni.new(alumni_params)
+		if coordinator_signed_in?
 
-		# render plain: @alumni.inspect
+			@alumni = Alumni.new(alumni_params)
 
-		if @alumni.save
-			render plain: "The Alumni was saved."
-		else
-			render plain: "The Alumni could not be saved."
+			if @alumni.save
+				render plain: "The Alumni was saved."
+			else
+				render plain: "The Alumni could not be saved."
+			end
+		end
+	end
+
+	def new
+		if not coordinator_signed_in?
+			render plain: "You don't have privileges."
 		end
 	end
 
