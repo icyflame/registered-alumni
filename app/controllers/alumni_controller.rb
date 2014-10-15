@@ -23,6 +23,17 @@ class AlumniController < ApplicationController
 		end
 	end
 
+	def destroy
+		if coordinator_signed_in?
+			@alumni = Alumni.find(params[:id])
+			if @alumni.destroy
+				render plain: "Alumni was deleted"
+			else
+				render plain: "Alumni could not be deleted."
+			end
+		end
+	end
+
 	private
 	def alumni_params
 		params.require(:alumni).permit(:name, :hall, :dept, :year)

@@ -8,20 +8,29 @@
 		<th>Hall</th>
 		<th>Department</th>
 		<th>Graduation year</th>
+		<% if coordinator_signed_in? %>
+		<th></th>
+		<% end %>
 	</tr>
 
-<% @all.each do |alum| %>
+	<% @all.each do |alumni| %>
 
-<tr>
+	<tr>
 
-	<td><%= alum.id %></td>
-	<td><%= alum.name %></td>
-	<td><%= alum.hall %></td>
-	<td><%= alum.dept %></td>
-	<td><%= alum.year %></td>
+		<td><%= alumni.id %></td>
+		<td><%= alumni.name %></td>
+		<td><%= alumni.hall %></td>
+		<td><%= alumni.dept %></td>
+		<td><%= alumni.year %></td>
 
-</tr>
+		<% if coordinator_signed_in? %>
+		<td>
+			<%= link_to "Delete", alumni_path(alumni), method: :delete %>
+		</td>
+		<% end %>
 
-<% end %>
+	</tr>
+
+	<% end %>
 
 </table>
