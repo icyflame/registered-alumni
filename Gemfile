@@ -42,3 +42,5 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass'
 gem 'devise'
+
+gem 'activeadmin', :git => 'https://github.com/activeadmin/activeadmin.git'
