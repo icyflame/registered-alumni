@@ -1,2 +1,27 @@
-<h1>Alumni#index</h1>
-<p>Find me in app/views/alumni/index.html.erb</p>
+<h2>List of all Registered Alumni</h2>
+
+<table class="table">
+
+	<tr>
+		<th>Serial</th>
+		<th>Name</th>
+		<th>Hall</th>
+		<th>Department</th>
+		<th>Graduation year</th>
+	</tr>
+
+<% @all.each do |alum| %>
+
+<tr>
+
+	<td><%= alum.id %></td>
+	<td><%= alum.name %></td>
+	<td><%= alum.hall %></td>
+	<td><%= alum.dept %></td>
+	<td><%= alum.year %></td>
+
+</tr>
+
+<% end %>
+
+</table>
